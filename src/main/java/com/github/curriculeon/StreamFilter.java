@@ -60,10 +60,9 @@ public class StreamFilter {
      * @return a list of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public List<Person> toListMultiLine() {
-        Predicate<Person> filterClause = person -> person.getName().startsWith(this.startingCharacter);
-        Stream<Person> filteredStream = personStream.filter(filterClause);
-        List<Person> filteredList = filteredStream.collect(Collectors.toList());
-        return filteredList;
+        Predicate<Person> personToFilter = person -> person.getName().startsWith(this.startingCharacter);
+        Stream<Person> filteredStream = personStream.filter(personToFilter);
+        return filteredStream.collect(Collectors.toList());
     }
 
 
@@ -94,10 +93,9 @@ public class StreamFilter {
      * @return an array of person object whose name starts with `this.startingCharacter`
      */ //TODO
     public Person[] toArrayMultiLine() {
-        Predicate<Person> filterClause = person -> person.getName().startsWith(this.startingCharacter);
-        Stream<Person> filteredStream = personStream.filter(filterClause);
-        Person[] filteredArray= filteredStream.toArray(Person[]::new);
-        return filteredArray;
+        Predicate<Person> personToFilter = person -> person.getName().startsWith(this.startingCharacter);
+        Stream<Person> filteredStream = personStream.filter(personToFilter);
+        return filteredStream.toArray(Person[]::new);
     }
 
 }
